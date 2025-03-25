@@ -1,15 +1,17 @@
 "use client";
 
 import React, { forwardRef } from "react";
-import { VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "./_helpers/buttonVariants";
 import Link, { LinkProps } from "next/link";
+
+import { cn } from "@/lib/utils";
+
+import { VariantProps } from "class-variance-authority";
+import { buttonVariants } from "./_helpers/buttonVariants";
 
 function renderSpinner() {
   return (
     <svg
-      className="animate-spin"
+      className="animate-spin size-4"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -29,23 +31,22 @@ type ButtonBaseProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   tag?: "button";
 };
 
-type LinkBaseProps = Omit<LinkProps, "passHref"> &
-  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-    tag: "link";
-    href: string;
-  };
+type LinkBaseProps = Omit<LinkProps, "passHref"> & React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  tag: "link";
+  href: string;
+};
 
-export type ButtonProps = (ButtonBaseProps | LinkBaseProps) &
-  VariantProps<typeof buttonVariants> & {
-    label?: string;
-    children?: React.ReactNode;
-    icon?: React.ReactNode;
-    iconPosition?: "left" | "right";
-    isLoading?: boolean;
-    loadingPosition?: "" | "left" | "right";
-    block?: boolean;
-    kind?: "solid";
-  };
+export type ButtonProps = (ButtonBaseProps | LinkBaseProps) & VariantProps<typeof buttonVariants> & {
+  label?: string;
+  children?: React.ReactNode;
+  icon?: React.ReactNode;
+  iconPosition?: "left" | "right";
+  isLoading?: boolean;
+  loadingPosition?: "" | "left" | "right";
+  block?: boolean;
+  kind?: "solid";
+  disabled?: boolean;
+};
 
 type ButtonRef = HTMLButtonElement | HTMLAnchorElement;
 
@@ -62,6 +63,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
       block = false,
       kind = "solid",
       type = "button",
+      disabled = false,
       ...props
     },
     ref
@@ -73,24 +75,32 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
       <Tag
         ref={ref}
         {...(isLink ? (props as LinkBaseProps) : (props as ButtonBaseProps))}
-        {...(!isLink && { type })}
+        {...(!isLink && { type, disabled })}
         aria-busy={isLoading}
-        className={cn(`relative inline-flex items-center justify-center 
+        className={cn(`
+          relative inline-flex items-center justify-center border border-black min-w-8 cursor-pointer
           ${isLoading && loadingPosition === "" ? "text-transparent" : ""} 
-          ${block ? "w-full" : ""}`
+          ${block ? "w-full" : ""}
+          ${disabled ? "opacity-25 cursor-default" : ""}
+          `
         )}
       >
         {isLoading && loadingPosition === "" && (
-          <span className="absolute left-1/2 -translate-x-1/2 flex visible text-black/30">
-            {renderSpinner()}
-          </span>
+          <>
+            <span className="absolute left-1/2 -translate-x-1/2 flex visible  text-black">
+              {renderSpinner()}
+            </span>
+            <span className="size-4"></span>
+          </>
         )}
 
         {isLoading && loadingPosition === "left" && renderSpinner()}
-        {children || label}
-        {isLoading && loadingPosition === "right" && renderSpinner()}
+        {iconPosition === "left" && !isLoading && icon && <span className="size-4">{icon}</span>}
 
-        {icon && <span className="w-4 h-4">{icon}</span>}
+        <span className={`contents ${isLoading && loadingPosition === "" ? "invisible" : "visible"}`}>{children || label}</span>
+
+        {isLoading && loadingPosition === "right" && renderSpinner()}
+        {iconPosition === "right" && !isLoading && icon && <span className="size-4">{icon}</span>}
       </Tag>
     );
   }
