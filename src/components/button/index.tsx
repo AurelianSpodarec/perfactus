@@ -39,13 +39,16 @@ type LinkBaseProps = Omit<LinkProps, "passHref"> & React.AnchorHTMLAttributes<HT
 export type ButtonProps = (ButtonBaseProps | LinkBaseProps) & VariantProps<typeof buttonVariants> & {
   label?: string;
   children?: React.ReactNode;
+  disabled?: boolean;
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
   isLoading?: boolean;
   loadingPosition?: "" | "left" | "right";
+
   block?: boolean;
-  kind?: "solid";
-  disabled?: boolean;
+  kind?: "text" | "outline" | "solid";
+  variant? : "primary",
+  size? :"md",
 };
 
 type ButtonRef = HTMLButtonElement | HTMLAnchorElement;
@@ -61,14 +64,20 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
       isLoading = false,
       loadingPosition = "",
       block = false,
-      kind = "solid",
       type = "button",
       disabled = false,
+
+      kind = "solid",
+      variant = "primary",
+      size = "md",
+
       ...props
     },
     ref
   ) => {
     const isLink = tag === "link";
+    const isLoadingFull = isLoading && loadingPosition === ""
+
     const Tag = (isLink ? Link : "button") as any;
 
     return (
@@ -77,17 +86,17 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
         {...(isLink ? (props as LinkBaseProps) : (props as ButtonBaseProps))}
         {...(!isLink && { type, disabled })}
         aria-busy={isLoading}
-        className={cn(`
-          relative inline-flex items-center justify-center border border-black min-w-8 cursor-pointer
-          ${isLoading && loadingPosition === "" ? "text-transparent" : ""} 
+        className={cn(buttonVariants({ variant, kind, size }), `
+          relative inline-flex items-center justify-center min-w-8 cursor-pointer
+          ${isLoadingFull ? "text-transparent" : ""} 
           ${block ? "w-full" : ""}
           ${disabled ? "opacity-25 cursor-default" : ""}
           `
         )}
       >
-        {isLoading && loadingPosition === "" && (
+        {isLoadingFull && (
           <>
-            <span className="absolute left-1/2 -translate-x-1/2 flex visible  text-black">
+            <span className="absolute left-1/2 -translate-x-1/2 flex visible text-black">
               {renderSpinner()}
             </span>
             <span className="size-4"></span>
@@ -97,7 +106,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
         {isLoading && loadingPosition === "left" && renderSpinner()}
         {iconPosition === "left" && !isLoading && icon && <span className="size-4">{icon}</span>}
 
-        <span className={`contents ${isLoading && loadingPosition === "" ? "invisible" : "visible"}`}>{children || label}</span>
+        <span className={`contents ${isLoadingFull ? "invisible" : "visible"}`}>{children || label}</span>
 
         {isLoading && loadingPosition === "right" && renderSpinner()}
         {iconPosition === "right" && !isLoading && icon && <span className="size-4">{icon}</span>}

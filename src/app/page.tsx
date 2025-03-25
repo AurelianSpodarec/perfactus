@@ -11,13 +11,26 @@ function Icon() {
 export default function Home() {
   return (
     <div>
-      {/* <Button>Button</Button> */}
 
-      {/* <div className="flex">
-        <Button isLoading>Loading</Button>
-        <Button isLoading loadingPosition="left">Loading Left</Button>
-        <Button isLoading loadingPosition="right">Loading Right</Button>
-      </div> */}
+      <div>
+        <h2>Kind</h2>
+        <div className="flex">
+          <Button kind="text">Text</Button>
+          <Button kind="solid">Contained</Button>
+          <Button kind="outlined">Outlined</Button>
+        </div>
+      </div>
+
+
+
+      <div className="flex">
+        <Button>
+          <Icon />
+        </Button>
+        <Button isLoading>
+          <Icon />
+        </Button>
+      </div>
 
       <div className="flex space-x-4">
         <Button>
@@ -61,7 +74,7 @@ export default function Home() {
           Text Icon Loading
         </Button>
       </div>
-      
+
       <div className="flex space-x-4">
         <Button>
           Button
