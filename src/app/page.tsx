@@ -1,6 +1,4 @@
 import { Button } from "@/components/button";
-import ButtonMagic from "@/components/button/_variants/ButtonMagic";
-import Link from "next/link";
 
 function Icon() {
   return (
@@ -14,13 +12,30 @@ export default function Home() {
 
       <div>
         <h2>Kind</h2>
-        <div className="flex">
+        <div className="flex space-x-4">
           <Button kind="text">Text</Button>
-          <Button kind="solid">Contained</Button>
+          <Button kind="solid">Solid</Button>
           <Button kind="outlined">Outlined</Button>
         </div>
       </div>
 
+      <div>
+        <h2>Primary</h2>
+        <div className="flex space-x-4">
+          <Button kind="text" variant="primary">Primary Text</Button>
+          <Button kind="solid" variant="primary">Primary Solid</Button>
+          <Button kind="outlined" variant="primary">Primary Outlined</Button>
+        </div>
+      </div>
+
+      <div>
+        <h2>Secondary</h2>
+        <div className="flex space-x-4">
+          <Button kind="text" variant="secondary">secondary Text</Button>
+          <Button kind="solid" variant="secondary">secondary Solid</Button>
+          <Button kind="outlined" variant="secondary">Primary Outlined</Button>
+        </div>
+      </div>
 
 
       <div className="flex">
@@ -46,6 +61,7 @@ export default function Home() {
           tag="link"
           href="/path"
           isLoading
+          loadingPosition="left"
           icon={<Icon />}
         >
           Link

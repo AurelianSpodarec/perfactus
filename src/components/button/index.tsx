@@ -6,7 +6,7 @@ import Link, { LinkProps } from "next/link";
 import { cn } from "@/lib/utils";
 
 import { VariantProps } from "class-variance-authority";
-import { buttonVariants } from "./_helpers/buttonVariants";
+import { buttonVariants } from "./buttonVariants";
 
 function renderSpinner() {
   return (
@@ -46,8 +46,8 @@ export type ButtonProps = (ButtonBaseProps | LinkBaseProps) & VariantProps<typeo
   loadingPosition?: "" | "left" | "right";
 
   block?: boolean;
-  kind?: "text" | "outline" | "solid";
-  variant? : "primary",
+  kind?: "text" | "outlined" | "solid";
+  variant? : "primary" | "secondary",
   size? :"md",
 };
 

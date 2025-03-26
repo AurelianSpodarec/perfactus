@@ -1,26 +1,27 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
-  "inline-flex items-center duration-75 justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  `rounded-button-radius border border-transparent
+   inline-flex items-center duration-75 transition-colors focus-visible:outlined-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50`,
   {
     variants: {
       variant: {
-        default: "bg-white text-text shadow-button border border-gray-400",
-        primary: "bg-primary text-primary-foreground hover:bg-primary/90",
-        warning: "bg-red-500 text-primary-foreground",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        destructive: "bg-destructive text-white",
-        monochrome: "bg-black text-white border border-gray-900",
+        primary: "bg-button-primary-background border-button-primary-border text-button-primary-foreground hover:bg-primary/50",
+        secondary: "bg-button-secondary-background border-button-secondary-border text-button-secondary-foreground hover:bg-secondary/50",
       },
       kind: {
-        outline: "bg-transparent border border-current shadow-[0_0_0_1px_currentColor]",
-        text: "shadow-none bg-transparent border border-transparent",
+        outlined: "bg-transparent",
+        text: "bg-transparent border-transparent hover:bg-transparent",
         solid: "",
       },
       size: {
-        slim: "text-sm",
-        medium: "text-sm",
-        large: "text-base",
+        xs: "text-xs",
+        sm: "text-sm",
+        md: "text-md",
+        base: "text-base",
+        lg: "text-lg",
+        xl: "text-xl",
+
       },
       fullWidth: {
         true: "w-full",
@@ -34,12 +35,12 @@ export const buttonVariants = cva(
       // Primary
       // ======================================
       {
-        kind: "outline",
+        kind: "outlined",
         variant: "primary",
         className: "text-primary",
       },
       {
-        kind: "plain",
+        kind: "text",
         variant: "primary",
         className: "text-primary",
       },
@@ -48,13 +49,13 @@ export const buttonVariants = cva(
       // ======================================
       {
         kind: "solid",
-        size: "medium",
+        size: "base",
         variant: "monochrome",
         className: "hover:bg-[#262626]"
       },
       {
-        kind: "outline",
-        size: "medium",
+        kind: "outlined",
+        size: "base",
         variant: "monochrome",
         className: "border border-black text-black hover:bg-gray-100"
       },
@@ -62,34 +63,34 @@ export const buttonVariants = cva(
       // Other
       // ======================================
       {
-        kind: "outline",
+        kind: "outlined",
         variant: "destructive",
         className: "text-destructive",
       },
       {
-        kind: "outline",
+        kind: "outlined",
         variant: "warning",
         className: "text-red-500",
       },
       {
-        kind: "outline",
+        kind: "outlined",
         size: "slim",
         className: "px-3 py-[3px]",
       },
       // Kinds
       // ========================================
       {
-        kind: "outline",
-        size: "medium",
+        kind: "outlined",
+        size: "base",
         className: "px-5 py-3",
       },
       {
         kind: "solid",
-        size: "medium",
+        size: "base",
         className: "px-5 py-3",
       },
       {
-        kind: "outline",
+        kind: "outlined",
         size: "large",
         className: "px-5 py-3",
       },
@@ -120,6 +121,6 @@ export const buttonVariants = cva(
     ],
     defaultVariants: {
       variant: "monochrome",
-      size: "medium",
+      size: "base",
     },
   });
