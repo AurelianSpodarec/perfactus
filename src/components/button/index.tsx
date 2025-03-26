@@ -47,8 +47,10 @@ export type ButtonProps = (ButtonBaseProps | LinkBaseProps) & VariantProps<typeo
 
   block?: boolean;
   kind?: "text" | "outlined" | "solid";
-  variant? : "primary" | "secondary",
-  size? :"md",
+  variant?: "primary" | "secondary",
+  size?: "md",
+
+  cursor?: boolean;
 };
 
 type ButtonRef = HTMLButtonElement | HTMLAnchorElement;
@@ -70,6 +72,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
       kind = "solid",
       variant = "primary",
       size = "md",
+      cursor = true,
 
       ...props
     },
@@ -88,6 +91,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
         aria-busy={isLoading}
         className={cn(buttonVariants({ variant, kind, size }), `
           relative inline-flex items-center justify-center min-w-8 cursor-pointer
+          ${cursor ? "cursor-pointer" : "cursor-default"}
           ${isLoadingFull ? "text-transparent" : ""} 
           ${block ? "w-full" : ""}
           ${disabled ? "opacity-25 cursor-default" : ""}

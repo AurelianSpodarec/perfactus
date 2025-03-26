@@ -5,42 +5,109 @@ body {
 }
 
 @theme {
-  --color-primary: var(--color-blue-500);
+  --color-primary: #18181b;
   --color-secondary: var(--color-slate-500);
 
   /* =========================================================================== 
   Buttons
   ========================================================================== */
+
   --radius-button-radius: var(--radius-sm);
 
   /* Button Primary
   ============================================================= */
 
+  /* TEXT 
+  ===================================================== */
+
+  --color-button-primary-text-foreground: hsl(0 0% 9.4%);
+
+  --color-button-primary-text-background: hsl(0 0% 100%);
+  --color-button-primary-text-background-hover: hsla(0 0% 0% / 0.30);
+
+  --border-color-button-primary-text-border: hsl(0 0% 100%);
+
+  /* SOLID 
+  ===================================================== */
+
+  --color-button-primary-solid-foreground: #fafafa;
+
+  --color-button-primary-solid-background: hsl(0 0% 9.4%);
+  --color-button-primary-solid-background-hover: hsla(0 0% 9.4% / 0.9);
+
+  --border-color-button-primary-solid-border: hsl(0 0% 9.4%);
+
+  /* OUTLINE 
+  ===================================================== */
+
   /* Foreground 
-  ----------------------------------------------------*/
-  --color-button-primary-foreground: red;
-  --color-button-primary-foregrgound-hover: red;
-  --color-button-primary-foreground-active: red;
-  --color-button-primary-foreground-active-hover: red;
+  -----------------------------------------------------*/
+  --color-button-primary-outlined-foreground: hsl(0 0% 9.4%);
 
-  /* Background
-  ----------------------------------------------------*/
-  --color-button-primary-background: var(--color-primary);
-  --color-button-primary-background-hover: red;
-  --color-button-primary-background-active: red;
-  --color-button-primary-background-active-hover: red;
+  /* Background 
+  -----------------------------------------------------*/
+  --color-button-primary-outlined-background: #fff;
+  --color-button-primary-outlined-background-hover: hsl(240 4.8% 95.9%);
 
-  /* Border
-  --------------------------------------------------- */
-  --border-color-button-primary-border: var(--color-blue-300);
-  --border-button-primary-border-hover: var(--color-primary);
+  --border-color-button-primary-outlined-border: hsl(240 5.9% 90%);
 
-  /* Primary Text */
-  /* Primary Outlined */
-  /* Primary Solid   */
+
 
   /* Button Secondary
-  ==================================================== */
+  ============================================================= */
+
+  /* TEXT 
+  ===================================================== */
+
+  --color-button-secondary-text-foreground: hsl(0 0% 0%);
+
+  --color-button-secondary-text-background: hsl(0 0% 100%);
+  --color-button-secondary-text-background-hover: hsl(240 4.8% 95.9%);
+
+  --border-color-button-secondary-text-border: hsl(0 0% 100%);
+
+  /* SOLID 
+  ===================================================== */
+
+  --color-button-secondary-solid-foreground: hsl(0 0% 0%);
+
+  --color-button-secondary-solid-background: hsl(120 10.3% 94.3%);
+  --color-button-secondary-solid-background-hover: hsl(0 0% 89%);
+
+  --border-color-button-secondary-solid-border: hsl(120 10.3% 94.3%);
+
+  /* OUTLINE 
+  ===================================================== */
+
+  /* Foreground 
+  -----------------------------------------------------*/
+  --color-button-secondary-outlined-foreground: hsl(0 0% 0%);
+
+  /* Background 
+  -----------------------------------------------------*/
+  --color-button-secondary-outlined-background: #fff;
+  --color-button-secondary-outlined-background-hover: hsl(240 4.8% 95.9%);
+
+  --border-color-button-secondary-outlined-border: hsl(240 5.9% 90%);
 
 
 }
+
+
+
+
+
+
+/* Primary Background
+    ----------------------------------------------------*/
+/* --color-button-primary-background: var(--color-primary);
+  --color-button-primary-background-hover: red;
+  --color-button-primary-background-active: red;
+  --color-button-primary-background-active-hover: red; */
+
+/* Primary SOLID Foreground 
+    ----------------------------------------------------*/
+/* --color-button-primary-solid-foreground: #fafafa;
+  --color-button-primary-solid-foregrgound-hover: red;
+  --color-button-primary-solid-foreground-active: red;
+  --color-button-primary-solid-foreground-active-hover: red; */

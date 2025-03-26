@@ -6,8 +6,8 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-button-primary-background border-button-primary-border text-button-primary-foreground hover:bg-primary/50",
-        secondary: "bg-button-secondary-background border-button-secondary-border text-button-secondary-foreground hover:bg-secondary/50",
+        primary: "bg-button-primary-background border-button-primary-border hover:bg-primary/90",
+        secondary: "bg-button-secondary-background border-button-secondary-border hover:bg-secondary/50",
       },
       kind: {
         outlined: "bg-transparent",
@@ -35,84 +35,99 @@ export const buttonVariants = cva(
       // Primary
       // ======================================
       {
-        kind: "outlined",
-        variant: "primary",
-        className: "text-primary",
-      },
-      {
         kind: "text",
         variant: "primary",
-        className: "text-primary",
+        className: `
+          bg-button-primary-text-background hover:bg-button-primary-text-background-hover 
+          text-button-primary-text-foreground hover:text-button-primary-text-foreground-hover
+          border-button-primary-text-border hover:border-button-primary-text-border-hover
+        `,
       },
-      // ======================================
-      // Monochrome
-      // ======================================
       {
         kind: "solid",
-        size: "base",
-        variant: "monochrome",
-        className: "hover:bg-[#262626]"
+        variant: "primary",
+        className: `
+          bg-button-primary-solid-background hover:bg-button-primary-solid-background-hover 
+          text-button-primary-solid-foreground hover:text-button-primary-solid-foreground-hover
+          border-button-primary-solid-border hover:border-button-primary-solid-border-hover
+        `,
       },
       {
         kind: "outlined",
-        size: "base",
-        variant: "monochrome",
-        className: "border border-black text-black hover:bg-gray-100"
+        variant: "primary",
+        className: `
+          bg-button-primary-outlined-background hover:bg-button-primary-outlined-background-hover 
+          text-button-primary-outlined-foreground hover:text-button-primary-outlined-foreground-hover
+          border-button-primary-outlined-border hover:border-button-primary-outlined-border-hover
+        `,
       },
       // ======================================
-      // Other
+      // Secondary
       // ======================================
       {
-        kind: "outlined",
-        variant: "destructive",
-        className: "text-destructive",
+        kind: "text",
+        variant: "secondary",
+        className: `
+          bg-button-secondary-text-background hover:bg-button-secondary-text-background-hover 
+          text-button-secondary-text-foreground hover:text-button-secondary-text-foreground-hover
+          border-button-secondary-text-border hover:border-button-secondary-text-border-hover
+        `,
+      },
+      {
+        kind: "solid",
+        variant: "secondary",
+        className: `
+          bg-button-secondary-solid-background hover:bg-button-secondary-solid-background-hover 
+          text-button-secondary-solid-foreground hover:text-button-secondary-solid-foreground-hover
+          border-button-secondary-solid-border hover:border-button-secondary-solid-border-hover
+        `,
       },
       {
         kind: "outlined",
-        variant: "warning",
-        className: "text-red-500",
+        variant: "secondary",
+        className: `
+          bg-button-secondary-outlined-background hover:bg-button-secondary-outlined-background-hover 
+          text-button-secondary-outlined-foreground hover:text-button-secondary-outlined-foreground-hover
+          border-button-secondary-outlined-border hover:border-button-secondary-outlined-border-hover
+        `,
       },
-      {
-        kind: "outlined",
-        size: "slim",
-        className: "px-3 py-[3px]",
-      },
+
       // Kinds
       // ========================================
       {
         kind: "outlined",
         size: "base",
-        className: "px-5 py-3",
+        className: "",
       },
       {
         kind: "solid",
         size: "base",
-        className: "px-5 py-3",
+        className: "",
       },
       {
         kind: "outlined",
-        size: "large",
-        className: "px-5 py-3",
+        size: "lg",
+        className: "",
       },
       // Solid
       // ======================================
       {
         kind: "solid",
-        size: "slim",
-        className: "px-3 py-[3px]",
+        size: "md",
+        className: "",
       },
       {
         kind: "solid",
-        size: "large",
-        className: "px-5 py-3",
+        size: "lg",
+        className: "",
       },
       // Text
       // ======================================
-      {
-        kind: "text",
-        variant: "destructive",
-        className: "text-destructive",
-      },
+      // {
+      //   kind: "text",
+      //   variant: "destructive",
+      //   className: "text-destructive",
+      // },
       // {
       //   disabled: true,
       //   variant: "default",
@@ -120,7 +135,7 @@ export const buttonVariants = cva(
       // },
     ],
     defaultVariants: {
-      variant: "monochrome",
+      variant: "primary",
       size: "base",
     },
   });

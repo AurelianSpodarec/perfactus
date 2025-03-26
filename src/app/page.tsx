@@ -31,9 +31,9 @@ export default function Home() {
       <div>
         <h2>Secondary</h2>
         <div className="flex space-x-4">
-          <Button kind="text" variant="secondary">secondary Text</Button>
-          <Button kind="solid" variant="secondary">secondary Solid</Button>
-          <Button kind="outlined" variant="secondary">Primary Outlined</Button>
+          <Button kind="text" variant="secondary">Secondary Text</Button>
+          <Button kind="solid" variant="secondary">Secondary Solid</Button>
+          <Button kind="outlined" variant="secondary">Srimary Outlined</Button>
         </div>
       </div>
 
@@ -130,6 +130,11 @@ export default function Home() {
           Text Icon Loading
         </Button>
       </div>
+
+      <section>
+
+        
+      </section>
 
     </div>
   );
