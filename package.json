@@ -1,7 +1,13 @@
 {
-  "name": "the-perfect-nextjs-button",
+  "name": "perfactus",
   "version": "0.1.0",
   "private": true,
+  "license": "ISC",
+  "type": "module",
+  "author": {
+    "name": "perfactus",
+    "url": "https://twitter.com/perfactus"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -25,5 +31,19 @@
     "eslint-config-next": "15.2.3",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/withPerfactus/ui.git"
+  },
+  "keywords": [
+    "Perfect",
+    "Components"
+  ],
+  "bugs": {
+    "url": "https://github.com/withPerfactus/ui/issues"
+  },
+  "homepage": "https://github.com/withPerfactus/ui#readme"
 }
