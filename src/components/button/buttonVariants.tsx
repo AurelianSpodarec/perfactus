@@ -10,8 +10,8 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-button-primary-background border-button-primary-border hover:bg-primary/90",
-        secondary: "bg-button-secondary-background border-button-secondary-border hover:bg-secondary/50",
+        primary: "",
+        secondary: "",
       },
       kind: {
         outlined: "bg-transparent",
