@@ -11,7 +11,7 @@ import { buttonVariants } from "./buttonVariants";
 function renderSpinner() {
   return (
     <svg
-      className="animate-spin size-4"
+      className="animate-spin size-4 text-pink-500"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -48,7 +48,7 @@ export type ButtonProps = (ButtonBaseProps | LinkBaseProps) & VariantProps<typeo
   block?: boolean;
   kind?: "text" | "outlined" | "solid";
   variant?: "primary" | "secondary",
-  size?: "md",
+  size?: "xs" | "sm" | "md" | "lg" | "xl",
 
   cursor?: boolean;
 };
@@ -89,8 +89,8 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
         {...(isLink ? (props as LinkBaseProps) : (props as ButtonBaseProps))}
         {...(!isLink && { type, disabled })}
         aria-busy={isLoading}
-        className={cn(buttonVariants({ variant, kind, size }), `
-          relative inline-flex items-center justify-center min-w-8 cursor-pointer
+        className={cn(buttonVariants({ variant, kind, size }),`
+          relative inline-flex items-center justify-center cursor-pointer gap-1.5
           ${cursor ? "cursor-pointer" : "cursor-default"}
           ${isLoadingFull ? "text-transparent" : ""} 
           ${block ? "w-full" : ""}
@@ -103,7 +103,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
             <span className="absolute left-1/2 -translate-x-1/2 flex visible text-black">
               {renderSpinner()}
             </span>
-            <span className="size-4"></span>
+            {/* <span className="size-4"></span> */}
           </>
         )}
 

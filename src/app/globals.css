@@ -4,6 +4,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+:root {
+  /* --text-woop: 50px; */
+}
+
 @theme {
   --color-primary: #18181b;
   --color-secondary: var(--color-slate-500);
@@ -59,41 +63,50 @@ body {
   /* TEXT 
   ===================================================== */
 
-  --color-button-secondary-text-foreground: hsl(0 0% 0%);
+  /* --color-button-secondary-text-foreground: ; */
 
-  --color-button-secondary-text-background: hsl(0 0% 100%);
-  --color-button-secondary-text-background-hover: hsl(240 4.8% 95.9%);
+  /* --color-button-secondary-text-background: ; */
+  /* --color-button-secondary-text-background-hover: ; */
 
-  --border-color-button-secondary-text-border: hsl(0 0% 100%);
+  --border-color-button-secondary-text-border: var(--color-white) ;
 
   /* SOLID 
   ===================================================== */
 
-  --color-button-secondary-solid-foreground: hsl(0 0% 0%);
+  --color-button-secondary-solid-foreground: var(--color-gray-900);
 
-  --color-button-secondary-solid-background: hsl(120 10.3% 94.3%);
-  --color-button-secondary-solid-background-hover: hsl(0 0% 89%);
+  --color-button-secondary-solid-background: var(--color-pink-500) ;
+  --color-button-secondary-solid-background-hover: var(--color-pink-600);
 
-  --border-color-button-secondary-solid-border: hsl(120 10.3% 94.3%);
+  --border-color-button-secondary-solid-border: var(--color-pink-500);
 
   /* OUTLINE 
   ===================================================== */
 
-  /* Foreground 
-  -----------------------------------------------------*/
-  --color-button-secondary-outlined-foreground: hsl(0 0% 0%);
+  --color-button-secondary-outlined-foreground: var(--color-pink-500);
 
-  /* Background 
-  -----------------------------------------------------*/
-  --color-button-secondary-outlined-background: #fff;
-  --color-button-secondary-outlined-background-hover: hsl(240 4.8% 95.9%);
+  /* --color-button-secondary-outlined-background: ; */
+  --color-button-secondary-outlined-background-hover: var(--color-pink-100);
 
-  --border-color-button-secondary-outlined-border: hsl(240 5.9% 90%);
+  /* --border-color-button-secondary-outlined-border: ; */
 
+  /* Button Sizes */
+  
+  --spacing-button-xs-x: --spacing(3.5);
+  --text-button-xs-size: var(--text-xs);
 
+  --spacing-button-sm-x: --spacing(4.5);
+  --text-button-sm-size: var(--text-sm);
+
+  --spacing-button-md-x: --spacing(5.5);
+  --text-button-md-size: var(--text-md);
+
+  --spacing-button-lg-x: --spacing(6.5);
+  --text-button-lg-size: var(--text-lg);
+
+  --spacing-button-xl-x: --spacing(7.5);
+  --text-button-xl-size: var(--text-xl);
 }
-
-
 
 
 

@@ -2,7 +2,7 @@ import { Button } from "@/components/button";
 
 function Icon() {
   return (
-    <svg focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SendIcon"><path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+    <svg className="fill-pink-500 h-full" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SendIcon"><path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
   )
 }
 
@@ -10,32 +10,123 @@ export default function Home() {
   return (
     <div>
 
-      <div>
-        <h2>Kind</h2>
-        <div className="flex space-x-4">
-          <Button kind="text">Text</Button>
-          <Button kind="solid">Solid</Button>
-          <Button kind="outlined">Outlined</Button>
+      <h1 className="text-woop">TEXT TAG</h1>
+
+      <div className="space-y-6 p-4">
+        <div>
+          <h2 className="mb-2 text-lg font-bold">Kinds</h2>
+          <div className="flex space-x-2">
+            <Button kind="text">Link</Button>
+            <Button kind="solid">Solid</Button>
+            <Button kind="outlined">Outline</Button>
+          </div>
         </div>
+
+        <div>
+          <h2 className="mb-2 text-lg font-bold">Variants Solid</h2>
+          <div className="flex space-x-2">
+            <Button kind="solid" variant="primary">Primary</Button>
+            <Button kind="solid" variant="secondary">Secondary</Button>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="mb-2 text-lg font-bold">Variants Outlined</h2>
+          <div className="flex space-x-2">
+            <Button kind="outlined" variant="primary">Primary</Button>
+            <Button kind="outlined" variant="secondary">Secondary</Button>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="mb-2 text-lg font-bold">Sizes</h2>
+          <div className="flex space-x-2">
+            <Button size="xs">Button XS</Button>
+            <Button size="sm">Button SM</Button>
+            <Button size="md">Button MD</Button>
+            <Button size="lg">Button LG</Button>
+            <Button size="xl">Button XL</Button>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="mb-2 text-lg font-bold">Icons</h2>
+          <div className="flex space-x-2">
+            <Button>
+              <Icon />
+            </Button>
+            <Button
+              icon={<Icon />}
+              iconPosition="left"
+            >
+              Icon Left
+            </Button>
+            <Button
+              icon={<Icon />}
+              iconPosition="right"
+            >
+              Icon Right
+            </Button>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="mb-2 text-lg font-bold">Loading States</h2>
+          <div className="flex space-x-2">
+            <Button isLoading>Loading</Button>
+            <Button
+              isLoading
+              loadingPosition="left"
+              icon={<Icon />}
+              iconPosition="left"
+            >
+              Loading
+            </Button>
+            <Button
+              isLoading
+              loadingPosition="left"
+              icon={<Icon />}
+              iconPosition="right"
+            >
+              Loading
+            </Button>
+            <Button
+              isLoading
+              loadingPosition="right"
+              icon={<Icon />}
+              iconPosition="right"
+            >
+              Loading
+            </Button>
+            <Button
+              isLoading
+              loadingPosition="right"
+              icon={<Icon />}
+              iconPosition="left"
+            >
+              Loading
+            </Button>
+            {/* <Button
+              isLoading
+              icon={<Icon />}
+              iconPosition=""
+            >
+              Loading
+            </Button>
+            <Button
+              isLoading
+              icon={<Icon />}
+              iconPosition=""
+            >
+              Loading
+            </Button> */}
+          </div>
+        </div>
+
       </div>
 
-      <div>
-        <h2>Primary</h2>
-        <div className="flex space-x-4">
-          <Button kind="text" variant="primary">Primary Text</Button>
-          <Button kind="solid" variant="primary">Primary Solid</Button>
-          <Button kind="outlined" variant="primary">Primary Outlined</Button>
-        </div>
-      </div>
 
-      <div>
-        <h2>Secondary</h2>
-        <div className="flex space-x-4">
-          <Button kind="text" variant="secondary">Secondary Text</Button>
-          <Button kind="solid" variant="secondary">Secondary Solid</Button>
-          <Button kind="outlined" variant="secondary">Srimary Outlined</Button>
-        </div>
-      </div>
+      <br />
 
 
       <div className="flex">
@@ -133,9 +224,9 @@ export default function Home() {
 
       <section>
 
-        
+
       </section>
 
-    </div>
+    </div >
   );
 }

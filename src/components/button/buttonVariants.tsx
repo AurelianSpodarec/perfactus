@@ -1,8 +1,12 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
-  `rounded-button-radius border border-transparent
-   inline-flex items-center duration-75 transition-colors focus-visible:outlined-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50`,
+  `
+   duration-75 transition-colors
+   rounded-button-radius border border-transparent
+   disabled:pointer-events-none disabled:opacity-50
+   focus-visible:outlined-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 
+   `,
   {
     variants: {
       variant: {
@@ -15,13 +19,11 @@ export const buttonVariants = cva(
         solid: "",
       },
       size: {
-        xs: "text-xs",
-        sm: "text-sm",
-        md: "text-md",
-        base: "text-base",
-        lg: "text-lg",
-        xl: "text-xl",
-
+        xs: "text-(length:--text-button-xs-size) px-button-xs-x h-[30px] ",
+        sm: "text-(length:--text-button-sm-size) px-button-sm-x h-[36px]",
+        md: "text-(length:--text-button-md-size) px-button-md-x h-[42px]",
+        lg: "text-(length:--text-button-lg-size) px-button-lg-x h-[50px]",
+        xl: "text-(length:--text-button-xl-size) px-button-xl-x h-[60px]",
       },
       fullWidth: {
         true: "w-full",
@@ -91,51 +93,9 @@ export const buttonVariants = cva(
           border-button-secondary-outlined-border hover:border-button-secondary-outlined-border-hover
         `,
       },
-
-      // Kinds
-      // ========================================
-      {
-        kind: "outlined",
-        size: "base",
-        className: "",
-      },
-      {
-        kind: "solid",
-        size: "base",
-        className: "",
-      },
-      {
-        kind: "outlined",
-        size: "lg",
-        className: "",
-      },
-      // Solid
-      // ======================================
-      {
-        kind: "solid",
-        size: "md",
-        className: "",
-      },
-      {
-        kind: "solid",
-        size: "lg",
-        className: "",
-      },
-      // Text
-      // ======================================
-      // {
-      //   kind: "text",
-      //   variant: "destructive",
-      //   className: "text-destructive",
-      // },
-      // {
-      //   disabled: true,
-      //   variant: "default",
-      //   className: "border-borderDisabled",
-      // },
     ],
     defaultVariants: {
       variant: "primary",
-      size: "base",
+      size: "md",
     },
   });
