@@ -44,6 +44,7 @@ export type ButtonProps = (ButtonBaseProps | LinkBaseProps) & VariantProps<typeo
   iconPosition?: "left" | "right";
   isLoading?: boolean;
   loadingPosition?: "" | "left" | "right";
+  loadingText?: string;
 
   block?: boolean;
   kind?: "text" | "outlined" | "solid";
@@ -65,6 +66,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
       iconPosition = "left",
       isLoading = false,
       loadingPosition = "",
+      loadingText = "",
       block = false,
       type = "button",
       disabled = false,
@@ -80,6 +82,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
   ) => {
     const isLink = tag === "link";
     const isLoadingFull = isLoading && loadingPosition === ""
+    const isCustomTextLoading = isLoading && loadingText
 
     const Tag = (isLink ? Link : "button") as any;
 
@@ -103,14 +106,14 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
             <span className="absolute left-1/2 -translate-x-1/2 flex visible text-black">
               {renderSpinner()}
             </span>
-            {/* <span className="size-4"></span> */}
           </>
         )}
 
         {isLoading && loadingPosition === "left" && renderSpinner()}
         {iconPosition === "left" && !isLoading && icon && <span className="size-4">{icon}</span>}
 
-        <span className={`contents ${isLoadingFull ? "invisible" : "visible"}`}>{children || label}</span>
+        {isCustomTextLoading ? "" : <span className={`contents ${isLoadingFull ? "invisible" : "visible"}`}>{children || label}</span>}
+        {isCustomTextLoading && <span className="contents">{loadingText}</span>}
 
         {isLoading && loadingPosition === "right" && renderSpinner()}
         {iconPosition === "right" && !isLoading && icon && <span className="size-4">{icon}</span>}

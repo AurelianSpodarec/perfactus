@@ -103,8 +103,9 @@ export default function Home() {
               loadingPosition="right"
               icon={<Icon />}
               iconPosition="left"
+              loadingText="Custom Loading Text..."
             >
-              Loading
+              Custmo Loading TExt isLoading
             </Button>
             {/* <Button
               isLoading
