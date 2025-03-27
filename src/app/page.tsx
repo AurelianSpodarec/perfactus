@@ -62,14 +62,14 @@ export default function Home() {
       </ComponentSection>
 
       <ComponentSection title="Loading States">
-        <Button isLoading>Loading</Button>
+        <Button isLoading>Full Loading</Button>
         <Button
           isLoading
           loadingPosition="left"
           icon={<Icon />}
           iconPosition="left"
         >
-          Loading
+          Loading Icon Left
         </Button>
         <Button
           isLoading
@@ -77,7 +77,7 @@ export default function Home() {
           icon={<Icon />}
           iconPosition="right"
         >
-          Loading
+          Loading Icon Left - Icon Right
         </Button>
         <Button
           isLoading
@@ -96,20 +96,6 @@ export default function Home() {
         >
           Custom Loading Text isLoading
         </Button>
-        {/* <Button
-              isLoading
-              icon={<Icon />}
-              iconPosition=""
-            >
-              Loading
-            </Button>
-            <Button
-              isLoading
-              icon={<Icon />}
-              iconPosition=""
-            >
-              Loading
-            </Button> */}
       </ComponentSection>
       
     </main>

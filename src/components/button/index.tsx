@@ -110,15 +110,15 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
         )}
 
         {isLoading && loadingPosition === "left" && renderSpinner()}
-        {iconPosition === "left" && !isLoading && icon && <span className="size-4">{icon}</span>}
+        {icon && iconPosition === "left" && loadingPosition !== "left" && <span className="size-4">{icon}</span>}
 
         {isCustomTextLoading ? "" : <span className={`contents ${isLoadingFull ? "invisible" : "visible"}`}>{children || label}</span>}
         {isCustomTextLoading && <span className="contents">{loadingText}</span>}
 
         {isLoading && loadingPosition === "right" && renderSpinner()}
-        {iconPosition === "right" && !isLoading && icon && <span className="size-4">{icon}</span>}
+        {icon && iconPosition === "right" && loadingPosition !== "right" && <span className="size-4">{icon}</span>}
       </Tag>
-    );
+    )
   }
 );
 
