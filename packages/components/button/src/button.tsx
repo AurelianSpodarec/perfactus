@@ -7,7 +7,6 @@ import Link, { LinkProps } from "next/link";
 
 import { cn } from "../../../lib/src/utils";
 
-
 import { VariantProps } from "class-variance-authority";
 import { buttonVariants } from "./buttonVariants";
 
@@ -95,6 +94,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
         {...(isLink ? (props as LinkBaseProps) : (props as ButtonBaseProps))}
         {...(!isLink && { type, disabled })}
         aria-busy={isLoading}
+        //@ts-ignore
         className={cn(buttonVariants({ variant, kind, size }),`
           relative inline-flex items-center justify-center cursor-pointer gap-1.5
           ${cursor ? "cursor-pointer" : "cursor-default"}

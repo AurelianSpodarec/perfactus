@@ -11,9 +11,13 @@
     "prepublishOnly": "tsc"
   },
   "peerDependencies": {
-    "react": "^17.0.0"
+    "react": "19.0.0"
   },
   "devDependencies": {
     "typescript": "^4.0.0"
+  },
+  "dependencies": {
+    "next": "^15.2.5",
+    "react-dom": "^19.1.0"
   }
 }

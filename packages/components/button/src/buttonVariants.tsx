@@ -97,6 +97,7 @@ export const buttonVariants = cva(
     ],
     defaultVariants: {
       variant: "primary",
+      kind: "solid",
       size: "md",
     },
   });
