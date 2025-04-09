@@ -1,18 +1,6 @@
 /** ============================================================================
-// 0-lib
+// Themes Button
 // ========================================================================== */
-@import "./0-vendor/tailwind.css";
-
-/** ============================================================================
-// 2-base
-// ========================================================================== */
-@import "./2-base/base.css";
-
-/** ============================================================================
-// Themes
-// ========================================================================== */
-@import "./themes/index.css";
-@import "./themes/button.css";
 
 @theme {
   --color-primary: #18181b;
@@ -81,7 +69,7 @@
 
   --color-button-secondary-solid-foreground: var(--color-gray-900);
 
-  --color-button-secondary-solid-background: var(--color-pink-500) ;
+  --color-button-secondary-solid-background: blue;
   --color-button-secondary-solid-background-hover: var(--color-pink-600);
 
   --border-color-button-secondary-solid-border: var(--color-pink-500);
@@ -114,3 +102,19 @@
   --text-button-xl-size: var(--text-xl);
 }
 
+
+
+
+/* Primary Background
+    ----------------------------------------------------*/
+/* --color-button-primary-background: var(--color-primary);
+  --color-button-primary-background-hover: red;
+  --color-button-primary-background-active: red;
+  --color-button-primary-background-active-hover: red; */
+
+/* Primary SOLID Foreground 
+    ----------------------------------------------------*/
+/* --color-button-primary-solid-foreground: #fafafa;
+  --color-button-primary-solid-foregrgound-hover: red;
+  --color-button-primary-solid-foreground-active: red;
+  --color-button-primary-solid-foreground-active-hover: red; */
