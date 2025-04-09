@@ -1,2 +1,103 @@
 @import "tailwindcss";
 @source "./../../../components/button/src/buttonVariants.tsx";
+
+
+@theme {
+  --color-primary: #18181b;
+  --color-secondary: var(--color-slate-500);
+
+  /* =========================================================================== 
+  Buttons
+  ========================================================================== */
+
+  --radius-button-radius: var(--radius-sm);
+
+  /* Button Primary
+  ============================================================= */
+
+  /* TEXT 
+  ===================================================== */
+
+  --color-button-primary-text-foreground: hsl(0 0% 9.4%);
+
+  --color-button-primary-text-background: hsl(0 0% 100%);
+  --color-button-primary-text-background-hover: hsla(0 0% 0% / 0.30);
+
+  --border-color-button-primary-text-border: hsl(0 0% 100%);
+
+  /* SOLID 
+  ===================================================== */
+
+  --color-button-primary-solid-foreground: #fafafa;
+
+  --color-button-primary-solid-background: hsl(0 0% 9.4%);
+  --color-button-primary-solid-background-hover: hsla(0 0% 9.4% / 0.9);
+
+  --border-color-button-primary-solid-border: hsl(0 0% 9.4%);
+
+  /* OUTLINE 
+  ===================================================== */
+
+  /* Foreground 
+  -----------------------------------------------------*/
+  --color-button-primary-outlined-foreground: hsl(0 0% 9.4%);
+
+  /* Background 
+  -----------------------------------------------------*/
+  --color-button-primary-outlined-background: #fff;
+  --color-button-primary-outlined-background-hover: hsl(240 4.8% 95.9%);
+
+  --border-color-button-primary-outlined-border: hsl(240 5.9% 90%);
+
+
+
+  /* Button Secondary
+  ============================================================= */
+
+  /* TEXT 
+  ===================================================== */
+
+  /* --color-button-secondary-text-foreground: ; */
+
+  /* --color-button-secondary-text-background: ; */
+  /* --color-button-secondary-text-background-hover: ; */
+
+  --border-color-button-secondary-text-border: var(--color-white) ;
+
+  /* SOLID 
+  ===================================================== */
+
+  --color-button-secondary-solid-foreground: var(--color-gray-900);
+
+  --color-button-secondary-solid-background: var(--color-pink-700);
+  --color-button-secondary-solid-background-hover: var(--color-pink-600);
+
+  --border-color-button-secondary-solid-border: var(--color-pink-500);
+
+  /* OUTLINE 
+  ===================================================== */
+
+  --color-button-secondary-outlined-foreground: var(--color-pink-500);
+
+  /* --color-button-secondary-outlined-background: ; */
+  --color-button-secondary-outlined-background-hover: var(--color-pink-100);
+
+  /* --border-color-button-secondary-outlined-border: ; */
+
+  /* Button Sizes */
+  
+  --spacing-button-xs-x: --spacing(3.5);
+  --text-button-xs-size: var(--text-xs);
+
+  --spacing-button-sm-x: --spacing(4.5);
+  --text-button-sm-size: var(--text-sm);
+
+  --spacing-button-md-x: --spacing(5.5);
+  --text-button-md-size: var(--text-md);
+
+  --spacing-button-lg-x: --spacing(6.5);
+  --text-button-lg-size: var(--text-lg);
+
+  --spacing-button-xl-x: --spacing(7.5);
+  --text-button-xl-size: var(--text-xl);
+}
