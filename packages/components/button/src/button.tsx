@@ -1,9 +1,12 @@
 "use client";
 
+import "./../dist/styles.css"
+
 import React, { forwardRef } from "react";
 import Link, { LinkProps } from "next/link";
 
 import { cn } from "../../../lib/src/utils";
+
 
 import { VariantProps } from "class-variance-authority";
 import { buttonVariants } from "./buttonVariants";
