@@ -11,8 +11,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@perfactus/button": "workspace:^",
-    "@perfactus/card": "workspace:^",
+    "@perfactus/button": "workspace:*",
     "@tailwindcss/postcss": "^4.1.3",
     "next": "^15.2.4",
     "postcss": "^8.5.3",
