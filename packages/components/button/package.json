@@ -17,6 +17,7 @@
     "typescript": "^4.0.0"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.1",
     "next": "^15.2.5",
     "react-dom": "^19.1.0"
   }
