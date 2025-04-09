@@ -1,0 +1,13 @@
+{
+  "name": "@perfactus/lib",
+  "version": "0.0.1",
+  "main": "src/utils.tsx",
+  "files": [
+    "src"
+  ],
+  "private": false,
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.2.0"
+  }
+}
