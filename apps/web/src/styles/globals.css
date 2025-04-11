@@ -14,5 +14,4 @@
 @import "./themes/index.css";
 @import "./themes/button.css";
 
-
-@source "../../../../packages/ui/**/*.{ts,tsx}";
+@source "../../node_modules/@perfactus/**/*.{ts,tsx}";
