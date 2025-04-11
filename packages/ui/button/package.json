@@ -7,7 +7,6 @@
   ],
   "private": false,
   "scripts": {
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "prepublishOnly": "tsc"
   },
   "peerDependencies": {

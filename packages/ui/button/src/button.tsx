@@ -1,6 +1,6 @@
 "use client";
 
-import "./../dist/styles.css"
+import "./styles.css"
 
 import React, { forwardRef } from "react";
 import Link, { LinkProps } from "next/link";
