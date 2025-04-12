@@ -2,7 +2,8 @@
 
 import "./styles.css"
 
-import React, { forwardRef } from "react";
+import React from "next";
+import { forwardRef } from "react";
 import Link, { LinkProps } from "next/link";
 
 import { cn } from "../../../lib/src/utils";
