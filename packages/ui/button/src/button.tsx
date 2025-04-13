@@ -43,7 +43,6 @@ const Button = forwardRef<HTMLElement, ButtonProps>(
       block = false,
       type = "button",
       disabled = false,
-
       kind,
       variant,
       size,

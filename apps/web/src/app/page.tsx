@@ -55,7 +55,6 @@ export default function Home() {
         <Button
           icon={<Icon />}
           iconPosition="left"
-          isLoadingFull
           isLoading
           asChild
         >
