@@ -6,7 +6,7 @@ import React, { forwardRef } from "react";
 import { Slot } from "radix-ui";
 import { VariantProps } from "class-variance-authority";
 
-import { cn } from "../../../lib/src/utils";
+import { cn } from "@perfactus/lib";
 
 import { buttonVariants } from "./buttonVariants";
 import { renderSpinner } from "./spinner";
