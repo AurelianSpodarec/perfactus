@@ -1,4 +1,4 @@
-import { Button } from "@perfactus/button";
+import { Button } from "@perfactus/react-button";
 import Link from "next/link";
 
 function Icon() {
