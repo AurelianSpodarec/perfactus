@@ -1,4 +1,6 @@
-import { Button } from "@perfactus/react-button";
+import { Button } from "@perfactus/test-button";
+
+
 import Link from "next/link";
 
 function Icon() {
@@ -19,7 +21,8 @@ function ComponentSection({ title, children }: { title: string; children: React.
 export default function Home() {
   return (
     <main className="space-y-6 p-4">
-
+      hi
+      {/* <Button>Button</Button> */}
       <ComponentSection title="Kinds">
         <Button kind="text" asChild>
           <Link href="/">

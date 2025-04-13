@@ -4,3 +4,4 @@ packages:
   - "packages/lib/*"
   - "packages/ui/*"
   - "packages/lib/*"
+  - "typescript-config/*"

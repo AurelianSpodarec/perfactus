@@ -1,0 +1,35 @@
+{
+  "name": "@perfactus/test-button",
+  "type": "module",
+  "private": false,
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "sideEffects": false,
+  "dependencies": {
+    "@perfactus/lib": "^0.0.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "radix-ui": "^1.2.0",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0",
+    "tailwind-merge": "^2.2.0"
+  },
+  "devDependencies": {
+    "@perfactus/lib": "^0.0.1",
+    "@perfactus/typescript-config": "workspace:*",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "class-variance-authority": "^0.7.1",
+    "radix-ui": "^1.2.0",
+    "tailwindcss": "^4",
+    "typescript": "latest"
+  }
+}
