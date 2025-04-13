@@ -70,7 +70,7 @@ const Button = forwardRef<HTMLElement, ButtonProps>(
       props.className
     );
 
-    const Comp = asChild ? Slot.Root : "button";
+    const Comp = asChild ? Slot.Root : "button" as React.ElementType;
     const isButton = !asChild
 
     return (
@@ -92,7 +92,7 @@ const Button = forwardRef<HTMLElement, ButtonProps>(
         {icon && iconPosition === "left" && loadingPosition !== "left" && <span className={`size-4 ${isLoadingFull ? "invisible" : "visible"}`}>{icon}</span>}
 
         {!isCustomTextLoading && (children || label) && (
-          <Slot.Slottable children={children || label} />
+          <Slot.Slottable>{children || label}</Slot.Slottable>
         )}
         
         {isCustomTextLoading && <span className="contents">{loadingText}</span>}

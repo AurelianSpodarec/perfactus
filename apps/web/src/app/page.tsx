@@ -1,4 +1,5 @@
 import { Button } from "@perfactus/button";
+import Link from "next/link";
 
 function Icon() {
   return (
@@ -20,7 +21,11 @@ export default function Home() {
     <main className="space-y-6 p-4">
 
       <ComponentSection title="Kinds">
-        <Button kind="text">Link</Button>
+        <Button kind="text" asChild>
+          <Link href="/">
+            Link
+          </Link>
+        </Button>
         <Button kind="solid">Solid</Button>
         <Button kind="outlined">Outline</Button>
       </ComponentSection>
@@ -50,8 +55,13 @@ export default function Home() {
         <Button
           icon={<Icon />}
           iconPosition="left"
+          isLoadingFull
+          isLoading
+          asChild
         >
-          Icon Left
+          <Link href="/">
+            Link Icon Left
+          </Link>
         </Button>
         <Button
           icon={<Icon />}
@@ -97,7 +107,7 @@ export default function Home() {
           Custom Loading Text isLoading
         </Button>
       </ComponentSection>
-      
+
     </main>
   );
 }
