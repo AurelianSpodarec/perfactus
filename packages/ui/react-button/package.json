@@ -1,6 +1,6 @@
 {
   "name": "@perfactus/react-button",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "src/button.tsx",
   "files": ["src"],
   "private": false,
