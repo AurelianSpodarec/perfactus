@@ -1,13 +1,10 @@
-import "./styles.css";
-
 import React, { forwardRef } from "react";
 import { Slot } from "radix-ui";
 import { VariantProps } from "class-variance-authority";
 
-import { cn } from "@perfactus/lib";
-
-import { buttonVariants } from "./buttonVariants";
-import { renderSpinner } from "./spinner";
+import { buttonVariants } from "./buttonVariants.js";
+import { renderSpinner } from "./spinner.js";
+import { cn } from "./utils.js";
 
 type ButtonBaseProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
