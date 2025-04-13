@@ -1,14 +1,13 @@
 "use client";
 
-import "./styles.css"
+import "./styles.css";
 
-import React from "next";
-import { forwardRef } from "react";
-import Link, { LinkProps } from "next/link";
+import React, { forwardRef } from "react";
+import { Slot } from "radix-ui";
+import { VariantProps } from "class-variance-authority";
 
 import { cn } from "../../../lib/src/utils";
 
-import { VariantProps } from "class-variance-authority";
 import { buttonVariants } from "./buttonVariants";
 
 function renderSpinner() {
@@ -30,39 +29,28 @@ function renderSpinner() {
   );
 }
 
-type ButtonBaseProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  tag?: "button";
-};
+type ButtonBaseProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-type LinkBaseProps = Omit<LinkProps, "passHref"> & React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  tag: "link";
-  href: string;
-};
+export type ButtonProps = ButtonBaseProps &
+  VariantProps<typeof buttonVariants> & {
+    label?: string;
+    children?: React.ReactNode;
+    disabled?: boolean;
+    icon?: React.ReactNode;
+    iconPosition?: "left" | "right";
+    isLoading?: boolean;
+    loadingPosition?: "" | "left" | "right";
+    loadingText?: string;
+    block?: boolean;
+    cursor?: boolean;
+    asChild?: boolean;
+    leftElement?: React.ReactNode;
+    rightElement?: React.ReactNode;
+  };
 
-export type ButtonProps = (ButtonBaseProps | LinkBaseProps) & VariantProps<typeof buttonVariants> & {
-  label?: string;
-  children?: React.ReactNode;
-  disabled?: boolean;
-  icon?: React.ReactNode;
-  iconPosition?: "left" | "right";
-  isLoading?: boolean;
-  loadingPosition?: "" | "left" | "right";
-  loadingText?: string;
-
-  block?: boolean;
-  kind?: "text" | "outlined" | "solid";
-  variant?: "primary" | "secondary",
-  size?: "xs" | "sm" | "md" | "lg" | "xl",
-
-  cursor?: boolean;
-};
-
-type ButtonRef = HTMLButtonElement | HTMLAnchorElement;
-
-const Button = forwardRef<ButtonRef, ButtonProps>(
+const Button = forwardRef<HTMLElement, ButtonProps>(
   (
     {
-      tag = "button",
       label,
       children,
       icon,
@@ -74,55 +62,66 @@ const Button = forwardRef<ButtonRef, ButtonProps>(
       type = "button",
       disabled = false,
 
-      kind = "solid",
-      variant = "primary",
-      size = "md",
+      kind,
+      variant,
+      size,
       cursor = true,
-
+      asChild = false,
+      leftElement,
+      rightElement,
       ...props
     },
     ref
   ) => {
-    const isLink = tag === "link";
-    const isLoadingFull = isLoading && loadingPosition === ""
-    const isCustomTextLoading = isLoading && loadingText
+    const isLoadingFull = isLoading && loadingPosition === "";
+    const isCustomTextLoading = isLoading && loadingText;
 
-    const Tag = (isLink ? Link : "button") as any;
+    const buttonClass = cn(
+      buttonVariants({ variant, kind, size }),
+      `
+        relative inline-flex items-center justify-center cursor-pointer gap-1.5 
+        ${cursor ? "cursor-pointer" : "cursor-default"}
+        ${isLoadingFull ? "text-transparent" : ""} 
+        ${block ? "w-full" : ""}
+        ${disabled ? "opacity-25 cursor-default" : ""}
+      `,
+      props.className
+    );
+
+    const Comp = asChild ? Slot.Root : "button";
+    const isButton = !asChild
 
     return (
-      <Tag
-        ref={ref}
-        {...(isLink ? (props as LinkBaseProps) : (props as ButtonBaseProps))}
-        {...(!isLink && { type, disabled })}
+      <Comp
+        ref={ref} {...props}
+        {...(isButton && { type, disabled })}
         aria-busy={isLoading}
-        //@ts-ignore
-        className={cn(buttonVariants({ variant, kind, size }),`
-          relative inline-flex items-center justify-center cursor-pointer gap-1.5
-          ${cursor ? "cursor-pointer" : "cursor-default"}
-          ${isLoadingFull ? "text-transparent" : ""} 
-          ${block ? "w-full" : ""}
-          ${disabled ? "opacity-25 cursor-default" : ""}
-          `
-        )}
+        className={buttonClass}
       >
+        {leftElement && <span className="left-element">{leftElement}</span>}
+
         {isLoadingFull && (
-          <>
-            <span className="absolute left-1/2 -translate-x-1/2 flex visible text-black">
-              {renderSpinner()}
-            </span>
-          </>
+          <span className="absolute left-1/2 -translate-x-1/2 flex visible text-black">
+            {renderSpinner()}
+          </span>
         )}
 
         {isLoading && loadingPosition === "left" && renderSpinner()}
-        {icon && iconPosition === "left" && loadingPosition !== "left" && <span className="size-4">{icon}</span>}
+        {icon && iconPosition === "left" && loadingPosition !== "left" && <span className={`size-4 ${isLoadingFull ? "invisible" : "visible"}`}>{icon}</span>}
 
-        {isCustomTextLoading ? "" : <span className={`contents ${isLoadingFull ? "invisible" : "visible"}`}>{children || label}</span>}
+        {!isCustomTextLoading && (children || label) && (
+          <Slot.Slottable children={children || label} />
+        )}
+        
         {isCustomTextLoading && <span className="contents">{loadingText}</span>}
 
         {isLoading && loadingPosition === "right" && renderSpinner()}
-        {icon && iconPosition === "right" && loadingPosition !== "right" && <span className="size-4">{icon}</span>}
-      </Tag>
-    )
+        {icon && iconPosition === "right" && loadingPosition !== "right" && <span className={`size-4 ${isLoadingFull ? "invisible" : "visible"}`}>{icon}</span>}
+
+        {rightElement && <span className="right-element">{rightElement}</span>}
+
+      </Comp>
+    );
   }
 );
 

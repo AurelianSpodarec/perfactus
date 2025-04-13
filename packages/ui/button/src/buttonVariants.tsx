@@ -14,9 +14,9 @@ export const buttonVariants = cva(
         secondary: "",
       },
       kind: {
-        outlined: "bg-transparent",
         text: "bg-transparent border-transparent hover:bg-transparent",
         solid: "",
+        outlined: "bg-transparent",
       },
       size: {
         xs: "text-(length:--text-button-xs-size) px-button-xs-x h-[30px] ",
